@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 
 	"generics.com/generics"
 	"generics.com/nongenerics"
+	"generics.com/slicegenerics"
 	"generics.com/structgenerics"
 )
 
@@ -16,8 +18,7 @@ func main() {
 	// structFunc()
 	// greet()
 	//
-	// TODO　↓から。
-	// https://engineering.cocone.io/2022/07/22/used_the_generics_feature_of_the-_go_language/#:~:text=Value%20V%0A%7D-,Slice%E7%B3%BB%E3%81%AE%E4%BE%BF%E5%88%A9%E9%96%A2%E6%95%B0,-%E4%BB%8A%E3%81%BE%E3%81%A7%E6%B1%8E%E7%94%A8%E7%9A%84
+	sliceFunc()
 }
 
 // 3つの関数をそれぞれの型に合わせて呼ぶ必要がある
@@ -113,4 +114,13 @@ func greet() {
 		Val:  gtJa,
 	}
 	fmt.Printf("%s\n", gt.Greet())
+}
+
+func sliceFunc() {
+	ints := []int{1, 2, 3, 4, 5}
+	result := slicegenerics.ConvertSlices(ints, func(num int) string {
+		return strconv.Itoa(num)
+	})
+
+	fmt.Printf("result : %s", result)
 }

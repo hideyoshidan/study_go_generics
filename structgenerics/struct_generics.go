@@ -35,6 +35,7 @@ type GreetingJapanese string
 type GreetingEnglish string
 
 // メソッドには、型パラメーターは持てない。
+// 以下のパターンはNGとなる
 // type AllowGenerics struct {
 // 	Name string
 // }
@@ -65,5 +66,5 @@ type LastTest struct {
 	// 以下のようには使えない。
 	// Geet GreetingType
 	GreetEn GreetingType[GreetingEnglish]
-	GreetJa GreetingType[GreetingEnglish]
+	GreetJa GreetingType[GreetingJapanese]
 }
